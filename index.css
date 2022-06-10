@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+}
+
+.board {
+    display: inline-block;
+    background-color: grey;
+    width: 400px;
+    height: 350px;
+    text-align: center;
+}
+
+.squares {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    border: 2px dotted red;
+    text-align: center;
+}
