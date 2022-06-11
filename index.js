@@ -1,31 +1,86 @@
+//document.addEventListener('DOMContentLoaded', () => {
+    // call the makePalette function
+    //makePalette()
+
 // select each square
 // * A user should be able to click on different squares to make a move.
-
+console.log("Hello World")
 // creat a variable selector for each div
-const div1 = document.getElementById('one')
-const div1 = document.getElementById('two')
-const div1 = document.getElementById('three')
-const div1 = document.getElementById('four')
-const div1 = document.getElementById('five')
-const div1 = document.getElementById('six')
-const div1 = document.getElementById('seven')
-const div1 = document.getElementById('eight')
-const div1 = document.getElementById('nine')
+const div1 = document.querySelector('#one')
+const div2 = document.querySelector('#two')
+const div3 = document.querySelector('#three')
+const div4 = document.querySelector('#four')
+const div5 = document.querySelector('#five')
+const div6 = document.querySelector('#six')
+const div7 = document.querySelector('#seven')
+const div8 = document.querySelector('#eight')
+const div9 = document.querySelector('#nine')
+
 
 // change innerText of div click
-function makeMove() {
-    
-}
+ function updateDiv1() { 
+     div1.style.backgroundColor = "blue";
+   }
+const updateDiv2 = () => div2.style.backgroundColor = "blue"//this should be a variable that changes when clicked by iterator // then gameflow iterater += 1
+const updateDiv3 = () => div3.style.backgroundColor = "blue"
+const updateDiv4 = () => div4.style.backgroundColor = "blue"
+const updateDiv5 = () => div5.style.backgroundColor = "blue"
+const updateDiv6 = () => div6.style.backgroundColor = "blue"
+const updateDiv7 = () => div7.style.backgroundColor = "blue"
+const updateDiv8 = () => div8.style.backgroundColor = "blue"
+const updateDiv9 = () => div9.style.backgroundColor = "blue"
+
+//   div1.addEventListener('click', function (event) {
+//   } ) 
+div1.addEventListener('click', updateDiv1)
+div2.addEventListener('click', updateDiv2)
+div3.addEventListener('click', updateDiv3)
+div4.addEventListener('click', updateDiv4)
+div5.addEventListener('click', updateDiv5)
+div6.addEventListener('click', updateDiv6)
+div7.addEventListener('click', updateDiv7)
+div8.addEventListener('click', updateDiv8)
+div9.addEventListener('click', updateDiv9)
+
+// function makeMove() {
+//}
+
 // * Every click will alternate between marking an `X` and `O`
-const gameflow = ["playX", "playO"]
+const gameflow = ["playX", "playO","playX", "playO","playX", "playO","playX", "playO","playX"]
+
+function checkIfWinner() {
+    //if row one is same === winner
+    //if row two is same === winner
+    //if row three is same === winner
+    //if column one is same === winner
+    //if column two is same === winner
+    //if column three is same === winner
+    //if diagonal one is same === winner
+    //if diagonal two is same === winner
+}
+
+
 // create variable to track which turn it is
-const gameOutcome = ['win', 'draw']
-const winner = 'win'
-const 
+// while gamestatus does not equal win or draw, check if win
+const gameStatus = ['play', 'win', 'draw']
+gameStatus = gameStatus[0]
+
+const win = 'win'
+const draw = "draw"
+
 let playersTurn = null;
-const player
     // inner content will be while loop
-// a 
+// while game is not win, for loop playes turn = gameflow[i]
+//   while ( gameStatus !== gameStatus[1] || gameStatus[2]) {
+//     checkIfWinner()
+//     for (let i = 0; i < gameflow.length; i++) {
+//         if (gameflow[i] === "playX") {
+//             // change display message to player one's turn
+//         } else if (gameflow[i] === "playO") {
+//             // change display message to player two's turn
+//         }
+//     }
+//   }
 
 // * Upon marking of an individual cell, use JavaScript to add an `X` or `O` to the cell, according to whose turn it is.
 
@@ -49,12 +104,18 @@ const player
 
 //   * Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
 
+
+
 // check each of the eight winning conditions
 // add an event listener that will listen for the DOM to be loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // call the makePalette function
-    makePalette()
-})
+
 
 // add an event listener to my generate button
-generate.addEventListener("click", makePalette)
+const restButton = document.querySelector("reset-button")
+restButton.addEventListener('click', restGame)
+
+function restGame() {
+    //changle player turn, turn counter, display message
+}
+
+//})
