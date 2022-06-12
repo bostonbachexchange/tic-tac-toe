@@ -86,6 +86,12 @@ let turn = 0
 let defaultColor = 'aqua';
 console.log(gameFlow[turn])
 
+// while gamestatus does not equal win or draw, check if win
+const gameStatus = ['play', 'win', 'draw']
+let gameStat = gameStatus[0]
+const win = 'win'
+const draw = "draw"
+
 // * Upon marking of an individual cell, use JavaScript to add an `X` or `O` to the cell, according to whose turn it is.
 // * Display a message to indicate which turn is about to be played.
 const displayMessage = document.getElementById('message-display')
@@ -149,23 +155,12 @@ function checkIfWinner() {
     //     console.log("Player One Wins")
     // }
 
-    // return? // If X is the game winner. Change inner contents of id "message-display" to "X is the winner"
-// same for Y or if game is a draw
-
 //if gameFlow[turn] === "playX", then player one is the winner
 //if gameFlow[turn] === "playO", then player two is the winner
-
 }
 
 // * You should not be able to click remaining empty cells after the game is over.
-
 // create variable to track which turn it is
-// while gamestatus does not equal win or draw, check if win
-const gameStatus = ['play', 'win', 'draw']
-let gameStat = gameStatus[0]
-const win = 'win'
-const draw = "draw"
-// if draw- change display message
 
 // * A cell should not be able to be replayed once marked.
 
@@ -174,8 +169,6 @@ const draw = "draw"
 // create new element and add inner contents to element
 // appenend new elements with inner conents to can-play section
 // remove can-play class from div
-
-
 
 //   * Hint: Determine a set of winning combinations. Check those combinations on the board contents after every move.
 
