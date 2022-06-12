@@ -11,57 +11,96 @@ const div7 = document.querySelector('#seven')
 const div8 = document.querySelector('#eight')
 const div9 = document.querySelector('#nine')
 
+// while gamestatus does not equal win or draw, check if win
+const gameStatus = ['play', 'win', 'draw']
+let gameStat = gameStatus[0]
+const win = 'win'
+const draw = 'draw'
+
 // change inner text of div on click
 function updateDiv1() { 
+     //console.log("bla bla bla " + text)
      gamePlay()
+     //console.log("game status 1 " + gameStat + ' ' + gameStatus[2] + ' '  + gameStatus[3])
+     if (div1.innerText == "❌" || div1.innerText == "⭕️") {
+       return
+     }
+     if (gameStat == gameStatus[1] || gameStat == gameStatus[2]) {
+       return
+     }
      div1.style.backgroundColor = color;
      div1.innerText = emoji
      checkIfWinner()
    }
 function updateDiv2() { 
     gamePlay()
+    if (gameStat == gameStatus[1] || gameStat == gameStatus[2]) {
+      return
+    }
     div2.style.backgroundColor = color;
     div2.innerText = emoji
     checkIfWinner()
   }
 function updateDiv3() { 
     gamePlay()
+    if (gameStat == gameStatus[1] || gameStat == gameStatus[2]) {
+      return
+    }
     div3.style.backgroundColor = color;
     div3.innerText = emoji
     checkIfWinner()
   }
   function updateDiv4() { 
     gamePlay()
+    if (gameStat == gameStatus[1] || gameStat == gameStatus[2]) {
+      return
+    }
     div4.style.backgroundColor = color;
     div4.innerText = emoji
+    
     checkIfWinner()
   }
   function updateDiv5() { 
     gamePlay()
+    if (gameStat == gameStatus[1] || gameStat == gameStatus[2]) {
+      return
+    }
     div5.style.backgroundColor = color;
     div5.innerText = emoji
     checkIfWinner()
   } 
   function updateDiv6() { 
     gamePlay()
+    if (gameStat == gameStatus[1] || gameStat == gameStatus[2]) {
+      return
+    }
     div6.style.backgroundColor = color;
     div6.innerText = emoji
     checkIfWinner()
   }
   function updateDiv7() { 
     gamePlay()
+    if (gameStat == gameStatus[1] || gameStat == gameStatus[2]) {
+      return
+    }
     div7.style.backgroundColor = color;
     div7.innerText = emoji
     checkIfWinner()
   }
   function updateDiv8() { 
     gamePlay()
+    if (gameStat == gameStatus[1] || gameStat == gameStatus[2]) {
+      return
+    }
     div8.style.backgroundColor = color;
     div8.innerText = emoji
     checkIfWinner()
   }
   function updateDiv9() { 
     gamePlay()
+    if (gameStat == gameStatus[1] || gameStat == gameStatus[2]) {
+      return
+    }
     div9.style.backgroundColor = color;
     div9.innerText = emoji
     checkIfWinner()
@@ -70,15 +109,15 @@ function updateDiv3() {
 //   div1.addEventListener('click', function (event) {
 //   } ) 
 
-div1.addEventListener('click', updateDiv1)
-div2.addEventListener('click', updateDiv2)
-div3.addEventListener('click', updateDiv3)
-div4.addEventListener('click', updateDiv4)
-div5.addEventListener('click', updateDiv5)
-div6.addEventListener('click', updateDiv6)
-div7.addEventListener('click', updateDiv7)
-div8.addEventListener('click', updateDiv8)
-div9.addEventListener('click', updateDiv9)
+div1.addEventListener('click', updateDiv1) 
+div2.addEventListener('click', updateDiv2, { once: true })
+div3.addEventListener('click', updateDiv3, { once: true })
+div4.addEventListener('click', updateDiv4, { once: true })
+div5.addEventListener('click', updateDiv5, { once: true })
+div6.addEventListener('click', updateDiv6, { once: true })
+div7.addEventListener('click', updateDiv7, { once: true })
+div8.addEventListener('click', updateDiv8, { once: true })
+div9.addEventListener('click', updateDiv9, { once: true })
 
 // * Every click will alternate between marking an `X` and `O`
 const gameFlow = ["playX", "playO", "playX", "playO", "playX", "playO", "playX", "playO", "playX"]
@@ -86,11 +125,7 @@ let turn = 0
 let defaultColor = 'aqua';
 console.log(gameFlow[turn])
 
-// while gamestatus does not equal win or draw, check if win
-const gameStatus = ['play', 'win', 'draw']
-let gameStat = gameStatus[0]
-const win = 'win'
-const draw = "draw"
+
 
 // * Upon marking of an individual cell, use JavaScript to add an `X` or `O` to the cell, according to whose turn it is.
 // * Display a message to indicate which turn is about to be played.
@@ -126,7 +161,8 @@ function checkIfWinner() {
     //     console.log("winner")
     // }
     if (div1.innerText != "" && div1.innerText === div2.innerText && div1.innerText === div3.innerText || div4.innerText != "" && div4.innerText === div5.innerText && div4.innerText === div6.innerText || div7.innerText != "" && div7.innerText === div8.innerText && div7.innerText === div9.innerText || div1.innerText != "" && div1.innerText === div4.innerText && div1.innerText === div7.innerText || div2.innerText != "" && div2.innerText === div5.innerText && div2.innerText === div8.innerText || div3.innerText != "" && div3.innerText === div6.innerText && div3.innerText === div9.innerText || div1.innerText != "" && div1.innerText === div5.innerText && div1.innerText === div9.innerText || div3.innerText != "" && div3.innerText === div5.innerText && div3.innerText === div7.innerText) {
-            let gameStat = gameStatus[1] // "win"
+             gameStat = gameStatus[1] // "win"
+             console.log(gameStat)
             if (gameFlow[turn] === "playX") {
                 displayMessage.innerText = "Player Two WINS!"
             } else if (gameFlow[turn] === "playO") {
@@ -180,6 +216,7 @@ const reset = document.querySelector("#reset")
 reset.addEventListener('click', resetGame)
 function resetGame() {
     turn = 0
+    gameStat = gameStatus[0]
     console.log(turn)
     div1.innerText = ''
     div1.style.backgroundColor = defaultColor
@@ -199,6 +236,14 @@ function resetGame() {
     div8.style.backgroundColor = defaultColor
     div9.innerText = ''
     div9.style.backgroundColor = defaultColor
+    div2.addEventListener('click', updateDiv2, { once: true })
+div3.addEventListener('click', updateDiv3, { once: true })
+div4.addEventListener('click', updateDiv4, { once: true })
+div5.addEventListener('click', updateDiv5, { once: true })
+div6.addEventListener('click', updateDiv6, { once: true })
+div7.addEventListener('click', updateDiv7, { once: true })
+div8.addEventListener('click', updateDiv8, { once: true })
+div9.addEventListener('click', updateDiv9, { once: true })
     //document.querySelector('.board').remove()
     // remove inner contents
     // changle player turn to player ones turn, turn counter, display message
