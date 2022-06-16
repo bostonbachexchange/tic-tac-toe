@@ -18,8 +18,8 @@ const win = 'win'
 const draw = 'draw'
 
 // change inner text of div on click
-function updateDiv1() { 
-     //console.log("bla bla bla " + text)
+function updateDiv1(event) { 
+     console.log("bla bla bla " + event.target.id)
      gamePlay()
      //console.log("game status 1 " + gameStat + ' ' + gameStatus[2] + ' '  + gameStatus[3])
      if (div1.innerText == "❌" || div1.innerText == "⭕️") {
@@ -124,8 +124,6 @@ const gameFlow = ["playX", "playO", "playX", "playO", "playX", "playO", "playX",
 let turn = 0
 let defaultColor = 'aqua';
 console.log(gameFlow[turn])
-
-
 
 // * Upon marking of an individual cell, use JavaScript to add an `X` or `O` to the cell, according to whose turn it is.
 // * Display a message to indicate which turn is about to be played.
